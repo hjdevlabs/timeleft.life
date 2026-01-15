@@ -1,0 +1,413 @@
+.public-profile {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    min-height: 100vh;
+}
+
+.public-profile:has(.year-view) {
+    max-width: 800px;
+}
+
+.profile-loading,
+.profile-not-found {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    color: var(--text-muted);
+}
+
+.profile-not-found h1 {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    font-weight: 300;
+    color: var(--text);
+}
+
+.profile-not-found a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s ease;
+}
+
+.profile-not-found a:hover {
+    color: var(--text);
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease forwards;
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+}
+
+.profile-avatar-placeholder {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0 auto 1rem;
+}
+
+.profile-name {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 0.25rem;
+}
+
+.profile-username {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.profile-start-btn {
+    margin-top: 1rem;
+    padding: 0.6rem 1.5rem;
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.profile-start-btn:hover {
+    background: var(--button-hover);
+}
+
+/* View Toggle */
+.profile-view-toggle {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.05s forwards;
+}
+
+.view-toggle-btn {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-toggle-btn:hover {
+    background: var(--button-hover);
+    color: var(--text);
+}
+
+.view-toggle-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--text-muted);
+    font-weight: 600;
+}
+
+.profile-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1.5rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.1s forwards;
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.profile-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--accent);
+}
+
+.profile-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.profile-stat-divider {
+    width: 1px;
+    height: 2.5rem;
+    background: var(--border);
+}
+
+.profile-activity {
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.15s forwards;
+}
+
+.activity-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+}
+
+.activity-cell {
+    aspect-ratio: 1;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: default;
+    transition: transform 0.15s ease;
+}
+
+.activity-cell:hover {
+    transform: scale(1.1);
+}
+
+.activity-cell.level-0 {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+}
+
+.activity-cell.level-1 {
+    background: rgba(99, 102, 241, 0.2);
+    border: 1px solid rgba(99, 102, 241, 0.3);
+}
+
+.activity-cell.level-2 {
+    background: rgba(99, 102, 241, 0.4);
+    border: 1px solid rgba(99, 102, 241, 0.5);
+}
+
+.activity-cell.level-3 {
+    background: rgba(99, 102, 241, 0.6);
+    border: 1px solid rgba(99, 102, 241, 0.7);
+}
+
+.activity-cell.level-4 {
+    background: rgba(99, 102, 241, 0.85);
+    border: 1px solid var(--accent);
+}
+
+.activity-day {
+    font-size: 0.5rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.activity-date {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.activity-cell.level-3 .activity-day,
+.activity-cell.level-4 .activity-day {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.activity-cell.level-3 .activity-date,
+.activity-cell.level-4 .activity-date {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* Year in Review - Simple grid (like DaysGrid) */
+.profile-activity.year-view {
+    width: 100%;
+}
+
+.year-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 10px);
+    gap: 3px;
+    justify-content: center;
+    max-width: 100%;
+}
+
+.year-cell {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    background: var(--progress-bg);
+    transition: background 0.3s ease;
+}
+
+.year-cell.level-1 {
+    background: rgba(99, 102, 241, 0.3);
+}
+
+.year-cell.level-2 {
+    background: rgba(99, 102, 241, 0.5);
+}
+
+.year-cell.level-3 {
+    background: rgba(99, 102, 241, 0.7);
+}
+
+.year-cell.level-4 {
+    background: var(--accent);
+}
+
+.year-legend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-top: 1rem;
+    font-size: 0.65rem;
+    color: var(--text-muted);
+}
+
+.year-legend .year-cell {
+    flex-shrink: 0;
+}
+
+.year-legend-label {
+    margin: 0 4px;
+}
+
+.profile-recent {
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.2s forwards;
+}
+
+.profile-section-title {
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.profile-log-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.profile-log-day {
+    background: var(--bg-subtle);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.profile-log-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-log-date {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.profile-log-time {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    color: var(--accent);
+}
+
+.profile-log-tasks {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-log-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.profile-log-task:last-child {
+    border-bottom: none;
+}
+
+.profile-log-task.completed {
+    opacity: 0.7;
+}
+
+.profile-log-task.completed .profile-log-task-title {
+    text-decoration: line-through;
+}
+
+.profile-log-task-title {
+    font-size: 0.85rem;
+    color: var(--text);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-log-task-time {
+    font-family: var(--font-display);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    margin-left: 1rem;
+}
+
+.profile-footer {
+    margin-top: 3rem;
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.3s forwards;
+}
+
+.profile-footer a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.profile-footer a:hover {
+    color: var(--text);
+}

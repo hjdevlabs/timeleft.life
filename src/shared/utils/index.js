@@ -5,3 +5,8 @@ export {
     msUntilMidnight,
     pad
 } from './date';
+
+export {
+    formatDuration,
+    formatDurationLong
+} from './format';

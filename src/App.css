@@ -2,6 +2,11 @@ main {
     width: 100%;
     max-width: 480px;
     text-align: center;
+    position: relative;
+}
+
+header {
+    position: relative;
 }
 
 /* Year Header */
@@ -32,4 +37,55 @@ footer {
 /* Subtle hover effect on numbers */
 .year {
     transition: opacity 0.3s ease;
+}
+
+/* Loading screen */
+.loading-screen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Home page action buttons */
+.home-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin: 2rem 0;
+    opacity: 0;
+    animation: fadeIn 0.5s ease 0.3s forwards;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+    background: var(--surface-hover);
+    transform: translateY(-1px);
 }

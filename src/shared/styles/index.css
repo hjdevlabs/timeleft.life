@@ -16,6 +16,17 @@
     --progress-fill: #fafafa;
     --font-display: 'Space Grotesk', sans-serif;
     --font-body: 'Plus Jakarta Sans', sans-serif;
+
+    /* Auth/Tasks variables */
+    --border: #2a2a2a;
+    --border-focus: #444444;
+    --success: #22c55e;
+    --error: #ef4444;
+    --button-bg: #1a1a1a;
+    --button-hover: #2a2a2a;
+    --input-bg: #111111;
+    --modal-bg: #0f0f0f;
+    --overlay: rgba(0, 0, 0, 0.8);
 }
 
 html {
