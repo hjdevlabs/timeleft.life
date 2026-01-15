@@ -24,9 +24,8 @@ dist-ssr
 *.sw?
 
 
-# plan
-plan.md
-
+# planning files
+*.md
 
 # Environment variables
 .env
