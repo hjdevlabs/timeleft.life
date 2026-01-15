@@ -17,10 +17,11 @@
             align-items: center;
             justify-content: center;
             color: #fafafa;
+            position: relative;
         }
 
         .year {
-            font-size: 180px;
+            font-size: 160px;
             font-weight: 300;
             letter-spacing: -0.03em;
             line-height: 1;
@@ -29,8 +30,8 @@
         .stats {
             display: flex;
             align-items: center;
-            gap: 60px;
-            margin-top: 40px;
+            gap: 50px;
+            margin-top: 30px;
         }
 
         .stat {
@@ -38,35 +39,59 @@
         }
 
         .stat-number {
-            font-size: 72px;
+            font-size: 56px;
             font-weight: 500;
         }
 
         .stat-label {
-            font-size: 16px;
+            font-size: 14px;
             color: #666;
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            margin-top: 8px;
+            margin-top: 6px;
         }
 
         .divider {
             width: 1px;
-            height: 80px;
+            height: 60px;
             background: #333;
         }
 
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(73, 10px);
+            gap: 3px;
+            margin-top: 40px;
+            padding: 0 40px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 2px;
+            background: #1a1a1a;
+        }
+
+        .dot.filled {
+            background: #fafafa;
+        }
+
+        .dot.today {
+            background: #3b82f6;
+            box-shadow: 0 0 8px rgba(59, 130, 246, 0.6);
+        }
+
         .tagline {
-            font-size: 24px;
+            font-size: 20px;
             color: #666;
-            margin-top: 50px;
+            margin-top: 35px;
             font-weight: 300;
         }
 
         .domain {
             position: absolute;
-            bottom: 40px;
-            font-size: 20px;
+            bottom: 25px;
+            font-size: 18px;
             color: #444;
             letter-spacing: 0.05em;
         }
@@ -87,8 +112,27 @@
         </div>
     </div>
 
+    <div class="grid" id="grid"></div>
+
     <div class="tagline">See how much of the year remains.</div>
 
     <div class="domain">timeleft.life</div>
+
+    <script>
+        const grid = document.getElementById('grid');
+        const totalDays = 365;
+        const daysPassed = 15;
+
+        for (let i = 0; i < totalDays; i++) {
+            const dot = document.createElement('div');
+            dot.className = 'dot';
+            if (i < daysPassed - 1) {
+                dot.classList.add('filled');
+            } else if (i === daysPassed - 1) {
+                dot.classList.add('today');
+            }
+            grid.appendChild(dot);
+        }
+    </script>
 </body>
 </html>
