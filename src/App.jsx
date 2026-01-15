@@ -1,8 +1,5 @@
-import { useTimeStats } from './hooks/useTimeStats';
-import { ProgressBar } from './components/ProgressBar';
-import { Stats } from './components/Stats';
-import { LiveTimer } from './components/LiveTimer';
-import { DaysGrid } from './components/DaysGrid';
+import { useTimeStats, ProgressBar, Stats, DaysGrid } from '@features/progress';
+import { LiveTimer } from '@features/timer';
 import './App.css';
 
 function App() {

@@ -1,8 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
-
-function pad(num, size) {
-    return String(num).padStart(size, '0');
-}
+import { pad } from '@/shared/utils';
 
 function getTimeValues() {
     const now = new Date();
