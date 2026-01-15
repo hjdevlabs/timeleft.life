@@ -1,0 +1,33 @@
+.progress-section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.2s forwards;
+}
+
+.progress-bar {
+    height: 4px;
+    background: var(--progress-bg);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--progress-fill);
+    border-radius: 2px;
+    width: 0%;
+    transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.progress-text {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.percentage {
+    font-family: var(--font-display);
+    color: var(--text);
+    font-weight: 500;
+}

@@ -1,0 +1,31 @@
+.grid-section {
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.5s forwards;
+}
+
+.days-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 6px);
+    gap: 3px;
+    justify-content: center;
+    max-width: 100%;
+    padding: 0 1rem;
+}
+
+.day-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 1px;
+    background: var(--progress-bg);
+    transition: background 0.3s ease;
+}
+
+.day-dot.filled {
+    background: var(--accent);
+}
+
+.day-dot.today {
+    background: #3b82f6;
+    box-shadow: 0 0 6px rgba(59, 130, 246, 0.5);
+}

@@ -1,0 +1,52 @@
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 4rem;
+    opacity: 0;
+    animation: fadeIn 1s ease 0.4s forwards;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-number {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 8vw, 3.5rem);
+    font-weight: 500;
+    color: var(--accent);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 0.5rem;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 3rem;
+    background: var(--progress-bg);
+}
+
+.stat:hover .stat-number {
+    opacity: 0.8;
+}
+
+@media (max-width: 400px) {
+    .stats {
+        gap: 1.5rem;
+    }
+
+    .stat-divider {
+        height: 2.5rem;
+    }
+}
